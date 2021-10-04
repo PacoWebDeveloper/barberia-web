@@ -1,0 +1,11 @@
+<div class="notices-content">
+    <h2>{{title}}</h2>
+
+    <section id="notices">
+        <div *ngFor="let notice of notices_array" id="notice">
+            <h3 class="title_notice">{{notice.title}}</h3>
+            <span class="date_notice">{{notice.date}}</span>
+            <p class="content_notice">{{notice.content}}</p>
+        </div>
+    </section>
+</div>

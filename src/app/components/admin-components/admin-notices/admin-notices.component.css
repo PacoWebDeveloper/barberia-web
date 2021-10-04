@@ -1,0 +1,66 @@
+.noticeContent {
+    width: 500px;  
+    padding-top: 10px;  
+    padding-bottom: 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px #000;
+}
+.title {
+    display: block;
+    width: 500px;
+    text-align: center;
+}
+form {
+    width: 500px;
+}
+.errorMessage, .okMessage {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5px;
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+}
+.errorMessage {    
+    border: 1px solid red;    
+    background-color: rgb(255, 150, 150);
+    color: red;    
+}
+.okMessage {
+    border: 1px solid green;    
+    background-color: rgb(150, 255, 150);
+    color: green; 
+}
+form span, label, input, textarea, button {
+    display: block;
+    width: 80%;
+    height: 30px;
+    font-size: 20px;
+    margin: 5px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+form input, textarea {
+    border: 1px solid black;
+}
+form textarea {
+    height: 200px;
+    resize: vertical;
+}
+form button {
+    margin-top: 20px;    
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(0, 89, 255);
+    border: none;
+    border-radius: 5px;
+}
+
+form button:hover {
+    cursor: pointer;
+    background-color: rgb(0, 89, 255, 0.8);
+}

@@ -1,0 +1,49 @@
+.notices-content {
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+h2{
+    width: 100%;
+    height: 180px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-family: 'Goblin_One';
+    font-size: 50px;
+    background-color: rgb(0, 89, 255);
+    color: white;
+    text-align: center;
+}
+#notices {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: rgb(241, 241, 241);
+    box-shadow: 0 0 10px black;
+}
+
+#notice {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding: 5px 10px;
+}
+.title_notice {
+    float: left;
+    width: 50%;
+    margin-top: 3px;
+    padding: 5px 0px;
+    font-size: 25px;
+}
+
+.content_notice {
+    clear: both;
+    margin-top: 5px;
+    padding: 5px 0px;
+}
+
+.date_notice {
+    width: 50%;
+    float: left;
+    margin-top: 5px;
+    text-align: right;
+    color: rgb(0, 89, 255);
+}

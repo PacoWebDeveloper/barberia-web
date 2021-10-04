@@ -1,0 +1,49 @@
+form {
+    width: 500px;
+    margin: 0 auto;
+    padding: 0 20px; 
+    padding-top: 10px;  
+    padding-bottom: 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px #000;
+}
+button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(0, 89, 255);
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: rgb(0, 89, 255, 0.8);
+    cursor: pointer;
+}
+.okMessage {
+    display: block;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: rgb(150, 255, 159);
+    color: green;
+    width: 70%;
+    margin-top: 10px;
+    padding: 3px;
+    text-align: center  ;
+}
+.errorMessage {
+    display: block;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: rgb(255,150,150);
+    color: red;
+    width: 70%;
+    margin-top: 10px;
+    padding: 3px;
+    text-align: center;
+}

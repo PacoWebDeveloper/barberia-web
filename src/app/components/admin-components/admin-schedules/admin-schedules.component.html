@@ -1,0 +1,147 @@
+
+<form #schedulesForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="days">
+        <span #noticeSpan >{{notice.message}}</span>
+        <label for="days">¿A qué días aplicará el horario?</label>
+        <div class="day-list">
+            <label class="checkinput">
+                <input #alldays [(ngModel)]="all" (change)="allDaysSelected(alldays.checked)" name="alldays" type="checkbox" value="all"> Todos los días
+            </label>
+
+            <label class="checkinput">
+                <input #monday [(ngModel)]="daysList[0]" (change)="checkboxSelected(monday.checked)" name="monday" type="checkbox" value="Lunes"> Lunes
+            </label>
+            <label class="checkinput">
+                <input #tuesday [(ngModel)]="daysList[1]" (change)="checkboxSelected(tuesday.checked)" name="tuesday" type="checkbox" value="Martes"> Martes
+            </label>
+
+            <label class="checkinput">
+                <input #wednesday [(ngModel)]="daysList[2]" (change)="checkboxSelected(wednesday.checked)" name="wednsday" type="checkbox" value="Miercoles"> Miercoles
+            </label>
+
+            <label class="checkinput">
+                <input #thursday [(ngModel)]="daysList[3]" (change)="checkboxSelected(thursday.checked)" name="thursday" type="checkbox" value="Jueves"> Jueves
+            </label>
+
+            <label class="checkinput">
+                <input #friday [(ngModel)]="daysList[4]" (change)="checkboxSelected(friday.checked)" name="friday" type="checkbox" value="Viernes"> Viernes
+            </label>
+
+            <label class="checkinput">
+                <input #saturday [(ngModel)]="daysList[5]" (change)="checkboxSelected(saturday.checked)" name="saturday" type="checkbox" value="Sabado"> Sábado
+            </label>
+
+            <label class="checkinput">
+                <input #sunday [(ngModel)]="daysList[6]" (change)="checkboxSelected(sunday.checked)" name="sunday" type="checkbox" value="Domingo"> Domingo
+            </label>
+        </div>
+
+        <section id="hours">
+            <h2>
+                <span [hidden]="!alldays.checked">Todos los dias</span>
+                <span [hidden]="!monday.checked || alldays.checked">Lunes </span>
+                <span [hidden]="!tuesday.checked || alldays.checked">Martes </span>
+                <span [hidden]="!wednesday.checked || alldays.checked">Miercoles </span>
+                <span [hidden]="!thursday.checked || alldays.checked">Jueves </span>
+                <span [hidden]="!friday.checked || alldays.checked">Viernes </span>
+                <span [hidden]="!saturday.checked || alldays.checked">Sabado </span>
+                <span [hidden]="!sunday.checked || alldays.checked">Domingo</span>
+            </h2><hr><br>
+
+            <label class="checkinput">
+                <input #openClose [(ngModel)]="open" (change)="showHourInfoFunction(openClose.checked)" name="open" type="checkbox" value="open" checked>
+                <b> Abierto</b>
+            </label>     
+                    
+
+            <div [hidden]="!showHourInfo">
+                <select #openHoursSelect name="hours" [(ngModel)]="hourSelected">
+                    <option *ngFor="let hour of hours" value="{{hour}}">{{hour}}</option>
+                </select>
+    
+                <label for=":">:</label>
+    
+                <select #openMinutesSelect name="minutes" [(ngModel)]=minuteSelected>
+                    <option *ngFor="let minute of minutes" value="{{minute}}">{{minute}}</option>
+                </select>
+
+                <label for="time"><input [(ngModel)]="timeSelected" type="radio" name="time" value="a.m.">a.m.</label>            
+                <label for="time"><input [(ngModel)]="timeSelected" type="radio" name="time" value="p.m." checked>p.m.</label>
+
+                <div class="closeHour">
+                    <b>Hora de cierre</b>
+                    <div>
+                        <select #closeHoursSelect name="hours" [(ngModel)]="closeHourSelected">
+                            <option *ngFor="let hour of hours" value="{{hour}}">{{hour}}</option>
+                        </select>
+            
+                        <label for=":">:</label>
+            
+                        <select #closeMinutesSelect name="minutes" [(ngModel)]=closeMinuteSelected>
+                            <option *ngFor="let minute of minutes" value="{{minute}}">{{minute}}</option>
+                        </select>
+        
+                        <label for="closeTime"><input [(ngModel)]="closeTimeSelected" type="radio" name="closeTime" value="a.m.">a.m.</label>            
+                        <label for="closeTime"><input [(ngModel)]="closeTimeSelected" type="radio" name="closeTime" value="p.m." checked>p.m.</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <button type="submit">Guardar cambios</button>
+</form>
+
+<section id="schedulePreview">
+
+    <h2>Así es como quedarán tus horarios</h2>
+    <table>
+        <tr>
+            <th>Día</th>
+            <th>Abierto</th>
+            <th [hidden]="!openClose.checked">Abre a la(s)</th>
+            <th [hidden]="!openClose.checked">Cierra a la(s)</th>            
+        </tr>
+        <tr>
+            <td>Lunes</td>
+            <td><div [hidden]="!open && monday.checked">Si</div><div [hidden]="open || !monday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+        <tr>
+            <td>Martes</td>
+            <td><div [hidden]="!open && tuesday.checked">Si</div><div [hidden]="open || !tuesday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+        <tr>
+            <td>Miercoles</td>
+            <td><div [hidden]="!open && wednesday.checked">Si</div><div [hidden]="open || !wednesday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+        <tr>
+            <td>Jueves</td>
+            <td><div [hidden]="!open && thursday.checked">Si</div><div [hidden]="open || !thursday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+        <tr>
+            <td>Viernes</td>
+            <td><div [hidden]="!open && friday.checked">Si</div><div [hidden]="open || !friday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+        <tr>
+            <td>Sabado</td>
+            <td><div [hidden]="!open && saturday.checked">Si</div><div [hidden]="open || !saturday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+        <tr>
+            <td>Domingo</td>
+            <td><div [hidden]="!open && sunday.checked">Si</div><div [hidden]="open || !sunday.checked">No</div></td>
+            <td [hidden]="!openClose.checked">{{hourSelected}}:{{minuteSelected}} {{timeSelected}}</td>
+            <td [hidden]="!openClose.checked">{{closeHourSelected}}:{{closeMinuteSelected}} {{closeTimeSelected}}</td>
+        </tr>
+    </table>
+</section>

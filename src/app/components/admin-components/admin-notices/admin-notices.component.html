@@ -1,0 +1,18 @@
+<div class="noticeContent">
+
+    <div class="title">
+        <h1>Crear un nuevo aviso</h1>
+    </div>
+    
+    <span class="errorMessage" *ngIf="message">{{message}}</span>
+    <span class="okMessage" *ngIf="okMessage">{{okMessage}}</span>
+    <form #formNotice="ngForm" (ngSubmit)="onSubmit(formNotice)">
+        <label for="title">Titulo</label>
+        <input type="text" name="title" #title="ngModel" [(ngModel)] = notice.title>
+
+        <label for="content">Contenido</label>
+        <textarea name="content" #content="ngModel" [(ngModel)]="notice.content" rows="20"></textarea> 
+
+        <button type="submit" [disabled]="!formNotice.form.valid">Publicar aviso</button>
+    </form>
+</div>

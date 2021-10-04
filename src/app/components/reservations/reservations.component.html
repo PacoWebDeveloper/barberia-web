@@ -1,0 +1,53 @@
+<section class="reservation-content">
+    <h2>{{title}}</h2>
+    <div id="reservations">
+
+    </div>
+    <div id="alert" [hidden]="!showAlert">
+        <h3 class="alert_title">No has iniciado sessión</h3>
+        <button class="btn-sessionStart" (click)="redirect()">Iniciar sesión</button>
+    </div>
+
+    <section id="reservation" [hidden]="showAlert">
+        <section id="addReservation">
+            <div id="addButton" (click)="showForm()" [hidden]="showFormBoolean"><i class="fas fa-plus-circle"></i></div>
+            <div id="cancelButton" (click)="showForm()" [hidden]="!showFormBoolean"><i class="fas fa-times"></i></div>
+            <div>
+                <p>
+                    Hoy es {{name_day}}, {{day}} de {{name_month}} del {{year}}
+                </p>
+            </div>
+        </section>
+        <section id="userReservation" [hidden]="!showReservation">
+            <h3>Tu proximo corte de cabello es el dia</h3>
+            <p id="contentReservation" (click)="getReservInfo($event)">{{nextName_day}}, {{nextDay}} de {{nextName_month}} del {{nextYear}} a las {{nextHour}}</p> 
+            <div id="otherReservations" [hidden]="!showOtherReservations">
+                <h4>Otras fechas</h4>
+                <div class="otherReserv" *ngFor="let element of otherReservations;" (click)="getReservInfo($event)">
+                    <span class="textReserv" #textReserv>
+                        {{element}}                      
+                    </span>
+                </div>
+            </div>
+            <span class="changeButtons" #changeBtns>
+                <button class="cancelBtn" (click)="hideButtons()"><i class="far fa-window-close"></i> Cancelar</button>
+                <button class="editBtn" (click)="enableToEdit()"><i class="far fa-edit"></i> Editar</button>
+                <button class="deteleBtn" (click)="delete()"><i class="far fa-trash-alt"></i> Eliminar</button>
+            </span>
+        </section>
+        <section id="noReservation" [hidden]="showReservation">
+            <h3>No tienes reservaciones programadas</h3>
+            <button 
+                id="reservButton" class="blueButton" #button 
+                (mouseover)="mouseOver()" (mouseout)="mouseOut()"
+                (click)="showForm()">{{textButton}}</button>
+        </section>
+        <section id="form" [hidden]="!showFormBoolean">
+            <app-reservation-form 
+                (refreshEvent)="refresh($event)" 
+                [editForm]="editFormBoolean" 
+                [reservId]="reservId">
+            </app-reservation-form>
+        </section>
+    </section>
+</section>

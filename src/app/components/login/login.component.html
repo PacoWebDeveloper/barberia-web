@@ -1,0 +1,33 @@
+<div class="container-login" >
+    <h2>{{title}}</h2>
+    <form #formLogin="ngForm" (ngSubmit)="onSubmit(formLogin)">
+        <span class="ngMessage" *ngIf="!dataOk && message" [hidden]="message">{{message}}</span>
+        <span class="okMessage" *ngIf="okMessage">{{okMessage}}</span>
+
+        <p *ngIf="formLink == 'Entrar'">
+            <label for="user">Nombre:</label>
+            <input type="text" name="user" #user="ngModel" [(ngModel)]="login.user" required>
+            <span *ngIf="user.touched && !user.valid">Ingrese un nombre valido</span>
+        </p>
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" #email="ngModel" [(ngModel)]="login.email" required>
+        <span *ngIf="email.touched && !email.valid">Ingrese un usuario valido</span>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="login.password" required>
+        <span *ngIf="password.touched && !password.valid">Ingrese una contraseña</span>  
+        
+        <p *ngIf="formLink == 'Entrar'">
+            <label for="passConfirm">Confirmar contraseña:</label>
+            <input type="password" name="passConfirm" #passConfirm="ngModel" [(ngModel)]="passwordConfirm" required>
+            <span *ngIf="passConfirm.touched && !passConfirm.valid">Ingrese una contraseña</span>
+        </p>
+
+        <input type="submit" value="{{buttonText}}" [disabled]="!formLogin.form.valid">
+
+        <p class="formLink">
+            <a (click)="linkButtonChange()">{{formLink}}</a>
+        </p>
+    </form>
+</div>

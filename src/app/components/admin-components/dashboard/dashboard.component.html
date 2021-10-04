@@ -1,0 +1,33 @@
+<section id="header"></section>
+
+<aside>
+    <div #schedules class="item" (click)="onClick($event)" (click)="['Actived']">
+        <div class="image">
+            <i class="far fa-clock image"></i>
+        </div>
+        <p class="title">Horarios</p>
+    </div>
+    <div #recentW class="item" (click)="onClick($event)">
+        <i class="far fa-images image"></i>
+        <p class="title">Trabajos recientes</p>        
+    </div>
+    <div #notice class="item" (click)="onClick($event)">
+        <i class="far fa-newspaper image"></i>
+        <p class="title">Avisos</p>
+    </div>
+    <div #reservation class="item" (click)="onClick($event)">
+        <i class="far fa-calendar-alt image"></i>
+        <p class="title long">Reservaciones</p>
+    </div>
+</aside>
+
+<section id="content">
+    <div class="componentContent">
+        <app-admin-schedules [hidden]="!scheduleVisible"></app-admin-schedules>
+        <app-admin-recent-works [hidden]="!recentVisible"></app-admin-recent-works>
+        <app-admin-notices [hidden]="!noticeVisible"></app-admin-notices>
+        <app-admin-reservation [hidden]="!reservationVisible"></app-admin-reservation>
+    </div>
+</section>
+
+<div class="clear"></div>

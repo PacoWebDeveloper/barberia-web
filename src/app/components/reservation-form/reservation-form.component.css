@@ -1,0 +1,68 @@
+form {
+    width: 64%;
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+form label {
+    margin: 5px auto;
+    padding: 5px;
+    font-size: 18px;
+}
+form select {
+    width: 70px;
+    padding: 5px 3px;
+    margin: 5px auto;
+    height: 30px;
+    font-size: 15px;
+}
+form input[type="date"] {
+    height: 30px;
+}
+form #hour {
+    width: 100px;
+}
+select option {
+    font-size: 15px;
+}
+.blueButton {
+    width: 150px;
+    border: 2px solid rgb(0, 89, 255);
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    background-color: rgb(0, 89, 255);
+    margin-top: 30px;
+    margin-left: calc(50% - 75px);
+    padding: 5px;
+}
+.blueButton:hover {
+    border: 2px solid rgb(0, 89, 255, 0.5);
+    background-color: rgb(0, 89, 255, 0.8);
+    cursor: pointer;
+}
+.blueButton:disabled {
+    cursor: not-allowed;
+}
+.green {
+    border: 2px solid rgb(0, 158, 34, 0.5);    
+    background-color: rgb(0, 158, 34);;
+}
+.green:hover {
+    border: 2px solid rgb(0, 158, 34, 0.5);
+    background-color: rgb(0, 158, 34, 0.8);
+    cursor: pointer;
+}
+.green:disabled {
+    cursor: not-allowed;
+}
+
+span {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    border: 1px solid rgb(200, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(255, 199, 199);
+    color: rgb(200, 0, 0);
+    text-align: center;
+}

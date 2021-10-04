@@ -1,0 +1,13 @@
+<form #reservForm="ngForm" (ngSubmit)="saveReservation(reservForm)">
+    <span *ngIf="message"><p>{{message}}</p></span>
+
+    <label for="calendar">Fecha</label>
+    <input type="date" #calendar #date=ngModel [(ngModel)]="reservationDate" name="calendar" (change)="loadAvailableSchedules($event)">
+
+    <label for="hour">Hora:</label>
+    <select name="hour" id="hour" #hour="ngModel" [(ngModel)]="reservation.cut_hour">
+        <option *ngFor="let hour of hours" [value]="hour">{{hour}}</option>
+    </select>
+
+    <input type="submit" class="blueButton green" value="Reservar">
+</form>

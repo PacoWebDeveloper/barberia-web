@@ -1,0 +1,31 @@
+<nav>    
+  <div id="menu">
+    <ul class="main_menu">
+      <li><a [routerLink]="['/bienvenida']"><img src="../assets/images/logo.jpg" class="logo"></a></li>
+      <li><a [routerLink]="['/horarios']" [routerLinkActive]="['Actived']" class="item">Horarios</a></li>
+      <li><a [routerLink]="['/trabajos-recientes']" [routerLinkActive]="['Actived']" class="item">Trabajos recientes</a></li>
+      <li><a [routerLink]="['/avisos']" [routerLinkActive]="['Actived']" class="item">Avisos</a></li>
+      <li><a [routerLink]="['/reservaciones']" [routerLinkActive]="['Actived']" class="item">Reservaciones</a></li>
+    </ul> 
+  </div> 
+  <div id="user">
+    <button class="session-btn" (click)="login()" >{{userName}}<span><i class="fas fa-chevron-down"></i></span></button>
+  </div>
+  <ul class="user_menu">
+    <li (click)="editProfile()" #settings><i class="fas fa-cogs"></i><p>Configuración</p></li>
+    <li (click)="logout()"><i class="fas fa-sign-out-alt"></i><p>Cerrar sesión</p></li>
+  </ul>
+</nav>
+
+
+<div class="main-container">
+
+  <router-outlet (activate)="ngOnInit()"></router-outlet>
+  
+</div>
+
+<footer>
+  <p>Barbería web</p>
+  <p>Angular</p>
+  <p>Desarrollador web - Brian Francisco Ortiz Mata</p>
+</footer>

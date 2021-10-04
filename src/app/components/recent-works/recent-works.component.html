@@ -1,0 +1,53 @@
+<div class="recentWorks-content">
+    
+    <h2>{{title}}</h2>
+
+    <!-- <ul>
+        <li>
+            <a>
+            <div class="image">
+                <img src="../../../assets/images/corte1.png">
+            </div>
+            </a>
+        </li>
+        <li>
+            <a>
+            <div class="image">
+                <img src="../../../assets/images/corte2.jpg">
+            </div>
+            </a>
+        </li><li>
+            <a>
+            <div class="image">
+                <img src="../../../assets/images/corte3.jpg">
+            </div>
+            </a>
+        </li><li>
+            <a>
+            <div class="image">
+                <img src="../../../assets/images/corte4.jpg">
+            </div>
+            </a>
+        </li><li>
+            <a>
+            <div class="image">
+                <img src="../../../assets/images/corte5.jpg">
+            </div>
+            </a>
+        </li><li>
+            <a>
+            <div class="image">
+                <img src="../../../assets/images/corte6.jpg">
+            </div>
+            </a>
+        </li>
+    </ul>    --> 
+    <section class="imagesContainer">
+        <div class="imageContainer" *ngFor="let recentWork of recentWorksArray">
+            <img class="image" src="{{url + '/getImages/' + recentWork}}" alt="">
+        </div>        
+    </section>
+
+    <div class="clear-fix"></div>
+
+</div>

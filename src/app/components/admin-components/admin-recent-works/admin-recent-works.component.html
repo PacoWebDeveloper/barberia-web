@@ -1,0 +1,13 @@
+<div id="content">
+    
+    <form #imageForm="ngForm" enctype="multipart/form-data">
+        <span class="okMessage" *ngIf=okMessage>{{okMessage}}</span>
+        <span class="errorMessage" *ngIf=message>{{message}}</span>
+        
+        <label for="image"><h2>Subir imagen</h2> 
+            <input type="file" name="image" #image (change)="inputFileChange($event)">
+        </label>
+    
+        <button (click)="onSubmit(imageForm)">Guardar</button>
+    </form>
+</div>

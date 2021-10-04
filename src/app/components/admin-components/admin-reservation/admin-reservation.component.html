@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class="header">Reservaciones del mes</h1>
+    <select class="monthSelect" name="monthSelect" #monthSelect (change)="getReservations({month: this.getMonth(monthSelect.value)})">
+        <option value="Enero" *ngIf="(month < 1)">Enero</option>
+        <option value="Febrero" *ngIf="(month < 2)">Febrero</option>
+        <option value="Marzo" *ngIf="(month < 3)">Marzo</option>
+        <option value="Abril" *ngIf="(month < 4)">Abril</option>
+        <option value="Mayo" *ngIf="(month < 5)">Mayo</option>
+        <option value="Junio" *ngIf="(month < 6)">Junio</option>
+        <option value="Julio" *ngIf="(month < 7)">Julio</option>
+        <option value="Agosto" *ngIf="(month < 8)">Agosto</option>
+        <option value="Septiembre" *ngIf="(month < 9)">Septiembre</option>
+        <option value="Octubre" *ngIf="(month < 10)">Octubre</option>
+        <option value="Noviembre" *ngIf="(month < 11)">Noviembre</option>
+        <option value="Diciembre" *ngIf="(month < 12)">Diciembre</option>
+    </select>
+    <table class="reservarionsTable">
+        <tr>            
+            <th>Día</th>
+            <th>Hora</th>
+            <th>Cliente</th>
+        </tr>
+        <tr *ngFor="let reservation of reservations">
+            <td>{{ reservation.cut_day }}</td>
+            <td>{{ reservation.cut_hour }}</td>
+            <td>{{ reservation.user_id }}</td>
+        </tr>
+    </table>
+</div>
